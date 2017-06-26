@@ -41,22 +41,41 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "CapacitacionAlumno.findAll", query = "SELECT c FROM CapacitacionAlumno c")})
 public class CapacitacionAlumno implements Serializable {
 
+    /**
+    * Variable que representa el numero de version que posee la clase Serializable.
+    */
     private static final long serialVersionUID = 1L;
+    /**
+    * Objeto de la clase CapacitacionAlumnoPK.
+    */
     @EmbeddedId
     protected CapacitacionAlumnoPK capacitacionAlumnoPK;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    /**
+    * Columna que corresponde a la nota final obtenida por el estudiante en los programas.
+    */
     @Basic(optional = false)
     @NotNull
     @Column(name = "NOTA_FINAL")
     private BigDecimal notaFinal;
+    /**
+    * Columna correspondiente al estado en que se encuentra la capacitacion por alumno.
+    * Esta puede ser inscrito (INS), matriculado (MAT), aprobado (APR), reprobado (REP), reprobado por faltas (RFA).
+    */
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
     @Column(name = "ESTADO")
     private String estado;
+    /**
+    * Clave primaria que corresponde a la entidad ALUMNO.
+    */
     @JoinColumn(name = "COD_ALUMNO", referencedColumnName = "COD_ALUMNO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Alumno alumno;
+    /**
+    * Clave primaria que corresponde a la entidad CAPACITACION.
+    */
     @JoinColumn(name = "COD_CAPACITACION", referencedColumnName = "COD_CAPACITACION", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Capacitacion capacitacion;
@@ -96,53 +115,102 @@ public class CapacitacionAlumno implements Serializable {
         this.capacitacionAlumnoPK = new CapacitacionAlumnoPK(codCapacitacion, codAlumno);
     }//Cierre del constructor.
 
+    /**
+    * Metodo get para mostrar el atributo capacitacionAlumnoPK.
+    * @return capacitacionAlumnoPK.
+    */
     public CapacitacionAlumnoPK getCapacitacionAlumnoPK() {
         return capacitacionAlumnoPK;
-    }
-
+    }//Cierre del metodo.
+    
+    /**
+    * Metodo set para modificar el atributo capacitacionAlumnoPK.
+    * @param capacitacionAlumnoPK.
+    */
     public void setCapacitacionAlumnoPK(CapacitacionAlumnoPK capacitacionAlumnoPK) {
         this.capacitacionAlumnoPK = capacitacionAlumnoPK;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo get para mostrar el atributo notaFinal.
+    * @return notaFinal.
+    */
     public BigDecimal getNotaFinal() {
         return notaFinal;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo set para modificar el atributo notaFinal.
+    * @param notaFinal.
+    */
     public void setNotaFinal(BigDecimal notaFinal) {
         this.notaFinal = notaFinal;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo get para mostrar el atributo estado.
+    * @return estado.
+    */
     public String getEstado() {
         return estado;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo set para modificar el atributo estado.
+    * @param estado.
+    */
     public void setEstado(String estado) {
         this.estado = estado;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo get para mostrar el atributo alumno.
+    * @return alumno.
+    */
     public Alumno getAlumno() {
         return alumno;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo set para modificar el atributo alumno.
+    * @param alumno.
+    */
     public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo get para mostrar el atributo capacitacion.
+    * @return capacitacion.
+    */
     public Capacitacion getCapacitacion() {
         return capacitacion;
-    }
+    }//Cierre del metodo.
 
+    /**
+    * Metodo set para modificar el atributo capacitacion.
+    * @param capacitacion.
+    */
     public void setCapacitacion(Capacitacion capacitacion) {
         this.capacitacion = capacitacion;
-    }
-
+    }//Cierre del metodo.
+    
+    /**
+    * Metodo hasCode sobreescrito.
+    * @return hash.
+    */
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (capacitacionAlumnoPK != null ? capacitacionAlumnoPK.hashCode() : 0);
         return hash;
-    }
-
+    }//Cierre del metodo.
+    
+    /**
+    * Metodo sobreescrito equals.
+    * @param object.
+    * @return boolen.
+    */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -154,11 +222,15 @@ public class CapacitacionAlumno implements Serializable {
             return false;
         }
         return true;
-    }
-
+    }//Cierre del metodo.
+    
+    /**
+    * Metodo sobreescrito toString.
+    * @return cadena de caracteres.
+    */
     @Override
     public String toString() {
         return "ec.edu.espe.EducaT.CapacitacionAlumno[ capacitacionAlumnoPK=" + capacitacionAlumnoPK + " ]";
-    }
+    }//Cierre del metodo.
     
-}
+}//Cierre de la clase.
