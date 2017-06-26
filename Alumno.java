@@ -121,7 +121,7 @@ public class Alumno implements Serializable {
     
     /**
     * Constructor con el parametro de codAlumno.
-    * @param codAlumno, variable que hace referencia a la columna codAlumno de la entidad ALUMNO.
+    * @param codAlumno variable que hace referencia a la columna codAlumno de la entidad ALUMNO.
     */
     public Alumno(String codAlumno) {
         this.codAlumno = codAlumno;
@@ -129,13 +129,13 @@ public class Alumno implements Serializable {
     
     /**
     * Constructor con varios parametros.
-    * @param codAlumno, variable que hace referencia a la columna codAlumno de la entidad ALUMNO.
-    * @param nombre, variable que hace referencia a la columna nombre de la entidad ALUMNO.
-    * @param direccion, variable que hace referencia a la columna direccion de la entidad ALUMNO.
-    * @param telefono, variable que hace referencia a la columna telefono de la entidad ALUMNO.
-    * @param correoElectronico, variable que hace referencia a la columna correoElectronico de la entidad ALUMNO.
-    * @param fechaNacimiento, variable que hace referencia a la columna fechaNacimiento de la entidad ALUMNO.
-    * @param genero, variable que hace referencia a la columna genero de la entidad ALUMNO.
+    * @param codAlumno variable que hace referencia a la columna codAlumno de la entidad ALUMNO.
+    * @param nombre variable que hace referencia a la columna nombre de la entidad ALUMNO.
+    * @param direccion variable que hace referencia a la columna direccion de la entidad ALUMNO.
+    * @param telefono variable que hace referencia a la columna telefono de la entidad ALUMNO.
+    * @param correoElectronico variable que hace referencia a la columna correoElectronico de la entidad ALUMNO.
+    * @param fechaNacimiento variable que hace referencia a la columna fechaNacimiento de la entidad ALUMNO.
+    * @param genero variable que hace referencia a la columna genero de la entidad ALUMNO.
     */
     public Alumno(String codAlumno, String nombre, String direccion, String telefono, String correoElectronico, Date fechaNacimiento, String genero) {
         this.codAlumno = codAlumno;
@@ -149,6 +149,7 @@ public class Alumno implements Serializable {
 
     /**
     * Metodo get para mostrar el atributo codAlumno.
+    * @return codAlumno.
     */
     public String getCodAlumno() {
         return codAlumno;
@@ -162,7 +163,8 @@ public class Alumno implements Serializable {
     }//Cierre del metodo.
     
     /**
-    * Metodo get para mostrar el atributo nombre.
+    * Metodo get para mostrar el atributo nombre.    
+    * @return nombre;
     */
     public String getNombre() {
         return nombre;
@@ -177,6 +179,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo get para mostrar el atributo direccion.
+    * @return direccion.
     */
     public String getDireccion() {
         return direccion;
@@ -191,6 +194,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo get para mostrar el atributo telefono.
+    * @return telefono.
     */
     public String getTelefono() {
         return telefono;
@@ -205,6 +209,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo get para mostrar el atributo correoElectronico.
+    * @return correoElectronico.
     */
     public String getCorreoElectronico() {
         return correoElectronico;
@@ -219,6 +224,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo get para mostrar el atributo fechaNacimiento.
+    * @return fechaNacimiento.
     */
     public Date getFechaNacimiento() {
         return fechaNacimiento;
@@ -233,6 +239,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo get para mostrar el atributo genero.
+    * @return genero.
     */
     public String getGenero() {
         return genero;
@@ -247,6 +254,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo get para mostrar el atributo capacitacionAlumnoCollection.
+    * @return capacitacionAlumnoCollection.
     */
     public Collection<CapacitacionAlumno> getCapacitacionAlumnoCollection() {
         return capacitacionAlumnoCollection;
@@ -260,7 +268,8 @@ public class Alumno implements Serializable {
     }//Cierre del metodo.
     
     /**
-    * Metodo get para mostrar el atributo programaAlumnoCollection.
+    * Metodo get para mostrar el atributo programaAlumnoCollection.    
+    * @return programaAlumnoCollection.
     */
     public Collection<ProgramaAlumno> getProgramaAlumnoCollection() {
         return programaAlumnoCollection;
