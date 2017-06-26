@@ -5,6 +5,10 @@
  */
 package ec.edu.espe.EducaT;
 
+
+/**
+* Importacion de los paquetes necesarios para el funcionamiento del sistema.
+*/
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Basic;
@@ -20,11 +24,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
+ * Clase encargada de obtener los datos de la base de datos EducaTBD.
  *
- * @author Adrián
+ * @author Adrián Calvopiña, Jonathan Almeida, David Suarez.
+ * @version 1.0
  */
 @Entity
+/**
+* Determinar el nombre de la entidad que de la cual se pretende obtener los datos dentro de la base de datos.
+*/
 @Table(name = "capacitacion_alumno")
+/**
+* Determinar el query.
+*/
 @NamedQueries({
     @NamedQuery(name = "CapacitacionAlumno.findAll", query = "SELECT c FROM CapacitacionAlumno c")})
 public class CapacitacionAlumno implements Serializable {
@@ -48,23 +60,41 @@ public class CapacitacionAlumno implements Serializable {
     @JoinColumn(name = "COD_CAPACITACION", referencedColumnName = "COD_CAPACITACION", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Capacitacion capacitacion;
-
+    
+    /**
+    * Constructor sin parametros, vacio.
+    */
     public CapacitacionAlumno() {
-    }
+    }//Cierre del constructor.
 
+    /**
+    * Constructor con el parametro de capacitacionAlumnoPK.
+    * @param capacitacionAlumnoPK variable que hace referencia a la relacion entre las entidades CAPACITACION y ALUMNO.
+    */
     public CapacitacionAlumno(CapacitacionAlumnoPK capacitacionAlumnoPK) {
         this.capacitacionAlumnoPK = capacitacionAlumnoPK;
-    }
-
+    }//Cierre del constructor.
+    
+    /**
+    * Constructor con los parametros de capacitacionAlumnoPK, notaFinal, estado.
+    * @param capacitacionAlumnoPK variable que hace referencia a la relacion entre las entidades CAPACITACION y ALUMNO.
+    * @param notaFinal variable que hacer refetencia a la columna de notas finales de los estudiantes en la entidad CAPACITACION_ALUMNO.
+    * @param estado variable que hacer refetencia a la columna de estado de las capacitaciones en la entidad CAPACITACION_ALUMNO.
+    */
     public CapacitacionAlumno(CapacitacionAlumnoPK capacitacionAlumnoPK, BigDecimal notaFinal, String estado) {
         this.capacitacionAlumnoPK = capacitacionAlumnoPK;
         this.notaFinal = notaFinal;
         this.estado = estado;
-    }
+    }//Cierre del constructor.
 
+    /**
+    * Constructor con los parametros de codCapacitacion, codAlumno.
+    * @param codCapacitacion variable que hace referencia a la clave primaria de la entidad ALUMNO.
+    * @param codAlumno variable que hace referencia a la clave primaria de la entidad ALUMNO.
+    */
     public CapacitacionAlumno(int codCapacitacion, String codAlumno) {
         this.capacitacionAlumnoPK = new CapacitacionAlumnoPK(codCapacitacion, codAlumno);
-    }
+    }//Cierre del constructor.
 
     public CapacitacionAlumnoPK getCapacitacionAlumnoPK() {
         return capacitacionAlumnoPK;
