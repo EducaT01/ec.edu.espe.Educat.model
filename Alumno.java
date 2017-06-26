@@ -157,6 +157,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo set para modificar el atributo codAlumno.
+    * @param codAlumno.
     */
     public void setCodAlumno(String codAlumno) {
         this.codAlumno = codAlumno;
@@ -172,6 +173,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo set para modificar el atributo nombre.
+    * @param nombre.
     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -187,6 +189,7 @@ public class Alumno implements Serializable {
 
     /**
     * Metodo set para modificar el atributo direccion.
+    * @param direccion.
     */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
@@ -202,6 +205,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo set para modificar el atributo telefono.
+    * @param telefono.
     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
@@ -217,6 +221,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo set para modificar el atributo correoElectronico.
+    * @param correoElectronico.
     */
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
@@ -232,6 +237,7 @@ public class Alumno implements Serializable {
 
     /**
     * Metodo set para modificar el atributo fechaNacimiento.
+    * @param fechaNacimiento.
     */
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
@@ -247,6 +253,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo set para modificar el atributo genero.
+    * @param genero.
     */
     public void setGenero(String genero) {
         this.genero = genero;
@@ -262,6 +269,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo set para modificar el atributo capacitacionAlumnoCollection.
+    * @param capacitacionAlumnoCollection.
     */
     public void setCapacitacionAlumnoCollection(Collection<CapacitacionAlumno> capacitacionAlumnoCollection) {
         this.capacitacionAlumnoCollection = capacitacionAlumnoCollection;
@@ -277,6 +285,7 @@ public class Alumno implements Serializable {
 
     /**
     * Metodo set para modificar el atributo programaAlumnoCollection.
+    * @param programaAlumnoCollection.
     */
     public void setProgramaAlumnoCollection(Collection<ProgramaAlumno> programaAlumnoCollection) {
         this.programaAlumnoCollection = programaAlumnoCollection;
@@ -295,6 +304,7 @@ public class Alumno implements Serializable {
     
     /**
     * Metodo sobreescrito equals.
+    * @param object.
     * @return boolen.
     */
     @Override
