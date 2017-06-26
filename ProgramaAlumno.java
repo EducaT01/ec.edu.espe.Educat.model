@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.EducaT;
 
+/**
+* Importacion de los paquetes necesarios para el funcionamiento del sistema.
+*/
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,11 +22,20 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
+ * Clase encargada de obtener los datos de la base de datos EducaTBD.
  *
- * @author Adrián
+ * @author Adrián Calvopiña, Jonathan Almeida, David Suarez.
+ * @version 1.0
  */
+
 @Entity
+/**
+* Determinar el nombre de la entidad que de la cual se pretende obtener los datos dentro de la base de datos.
+*/
 @Table(name = "programa_alumno")
+/**
+* Determinar el query.
+*/
 @NamedQueries({
     @NamedQuery(name = "ProgramaAlumno.findAll", query = "SELECT p FROM ProgramaAlumno p")})
 public class ProgramaAlumno implements Serializable {
@@ -43,21 +55,39 @@ public class ProgramaAlumno implements Serializable {
     @ManyToOne(optional = false)
     private Programa programa;
 
+    /**
+    * Constructor sin parametros, vacio.
+    */
     public ProgramaAlumno() {
-    }
-
+    }//Cierre del constructor
+    
+    /**
+    * Constructor con el parametro de programaAlumnoPK.
+    * @param programaAlumnoPK variable que hace referencia a la relacion entre las entidades PROGRAMA y ALUMNO.
+    */
     public ProgramaAlumno(ProgramaAlumnoPK programaAlumnoPK) {
         this.programaAlumnoPK = programaAlumnoPK;
-    }
-
+    }//Cierre del constructor
+    
+    /**
+    * Constructor con los parametros de programaAlumnoPK, estado.
+    * @param programaAlumnoPK variable que hace referencia a la relacion entre las entidades PROGRAMA y ALUMNO.
+    * @param estado Columna que corresponde al estado del estudiante con respecto a algun programa, 
+    * este puede ser: inscrito (INS), matriculado (MAT), en progreso (PRO) o finalizafo (FIN).
+    */
     public ProgramaAlumno(ProgramaAlumnoPK programaAlumnoPK, String estado) {
         this.programaAlumnoPK = programaAlumnoPK;
         this.estado = estado;
-    }
+    }//Cierre del constructor
 
+    /**
+    * Constructor con los parametros de codPrograma, codAlumno.
+    * @param codPrograma variable que hace referencia a la clave primaria de la entidad PROGRAMA.
+    * @param codAlumno variable que hace referencia a la clave primaria de la entidad ALUMNO.
+    */
     public ProgramaAlumno(String codPrograma, String codAlumno) {
         this.programaAlumnoPK = new ProgramaAlumnoPK(codPrograma, codAlumno);
-    }
+    }//Cierre del constructor
 
     public ProgramaAlumnoPK getProgramaAlumnoPK() {
         return programaAlumnoPK;
