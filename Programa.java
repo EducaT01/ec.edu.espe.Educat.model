@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -30,6 +30,9 @@ import javax.validation.constraints.Size;
 @Table(name = "programa")
 @NamedQueries({
     @NamedQuery(name = "Programa.findAll", query = "SELECT p FROM Programa p")})
+/**
+* Clase que define un programa en el instituto
+*/
 public class Programa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,28 +41,52 @@ public class Programa implements Serializable {
     @NotNull
     @Size(min = 1, max = 8)
     @Column(name = "COD_PROGRAMA")
+    /**
+    * Clave primaria que identifica al programa.
+    */
     private String codPrograma;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "NOMBRE")
+    /**
+    * Es el nombre que recibe el programa por los temas que llega a tratar.
+    */
     private String nombre;
     @Size(max = 4000)
     @Column(name = "DESCRIPCION")
+    /**
+    * Es la descripción que tiene ese curso de una manera mucho más específica.
+    */
     private String descripcion;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DURACION")
+    /**
+    * Es el número de días que dura cada uno de los programas.
+    */
     private short duracion;
     @Column(name = "FECHA_INICIO")
     @Temporal(TemporalType.DATE)
+    /**
+    * Fecha en la que se tiene previsto empezar el programa.
+    */
     private Date fechaInicio;
     @Column(name = "FECHA_FIN")
     @Temporal(TemporalType.DATE)
+    /**
+    * Fecha en la que se tiene previsto finalizar el programa.
+    */
     private Date fechaFin;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "programa")
+    /**
+    * Coleccion programas.
+    */
     private Collection<ProgramaCurso> programaCursoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "programa")
+    /**
+    * Coleccion de la relacion que existe entre los alumnos y los programas.
+    */
     private Collection<ProgramaAlumno> programaAlumnoCollection;
 
     public Programa() {

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -26,6 +26,9 @@ import javax.validation.constraints.Size;
 @Table(name = "docente")
 @NamedQueries({
     @NamedQuery(name = "Docente.findAll", query = "SELECT d FROM Docente d")})
+/**
+* Clase que define a los docentes que dictan capacitaciones en el instituto.
+*/
 public class Docente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,28 +37,46 @@ public class Docente implements Serializable {
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "COD_DOCENTE")
+    /**
+    * Clave primaria que corresponde a la cédula de identidad del docente.
+    */
     private String codDocente;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
     @Column(name = "NOMBRE")
+    /**
+    * Nombre que consta de nombre y apellido de cada uno de los docentes del instituto.
+    */
     private String nombre;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "DIRECCION")
+    /**
+    * Es la dirección en la que viven los docentes que imparten clases en el instituto.
+    */
     private String direccion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "TELEFONO")
+    /**
+    * Teléfono personal de los docentes para ser contactados.
+    */
     private String telefono;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 128)
     @Column(name = "CORREO_ELECTRONICO")
+    /**
+    * Es el correo electrónico que tienen los docentes, para hacerles llegar cualquier comunicado.
+    */
     private String correoElectronico;
     @OneToMany(mappedBy = "codDocente")
+    /**
+    * Coleccion de las capacitaciones que se pueden tener.
+    */
     private Collection<Capacitacion> capacitacionCollection;
 
     public Docente() {

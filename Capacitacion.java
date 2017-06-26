@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -34,6 +34,9 @@ import javax.validation.constraints.Size;
 @Table(name = "capacitacion")
 @NamedQueries({
     @NamedQuery(name = "Capacitacion.findAll", query = "SELECT c FROM Capacitacion c")})
+/**
+* Clase que define las capacitaciones con las que cuenta el instituto.
+*/
 public class Capacitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,33 +44,60 @@ public class Capacitacion implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "COD_CAPACITACION")
+    /**
+    * Clave primaria que corresponde al ID de la capacitación.
+    */
     private Integer codCapacitacion;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_INICIO")
     @Temporal(TemporalType.DATE)
+    /**
+    * Fecha en la que se tiene previsto empezar la capacitación.
+    */
     private Date fechaInicio;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_FIN")
     @Temporal(TemporalType.DATE)
+    /**
+    * Fecha en la que se tiene previsto finalizar la capacitación.
+    */
     private Date fechaFin;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
     @Column(name = "ESTADO")
+    /**
+    * Estado en la que se encuentra cada una de las capacitaciones, 
+    * estos estados pueden ser: "inscripciones", "en progreso", 
+    * "finalizada", "cancelada" y "definida".
+    */
     private String estado;
     @Basic(optional = false)
     @NotNull
     @Column(name = "CAPACIDAD")
+    /**
+    * Es la capacidada en numero de personas que pueden recibir la capacitación.
+    */
     private short capacidad;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "capacitacion")
+    /**
+    * Colección que almacena la relación entre lo que son los alumnos 
+    * y las cpacitaciones que pueden llegar a tomar.
+    */
     private Collection<CapacitacionAlumno> capacitacionAlumnoCollection;
     @JoinColumn(name = "COD_CURSO", referencedColumnName = "COD_CURSO")
     @ManyToOne(optional = false)
+    /**
+    * Clave primaria que corresponde al ID que tiene el curso en la institución.
+    */
     private Curso codCurso;
     @JoinColumn(name = "COD_DOCENTE", referencedColumnName = "COD_DOCENTE")
     @ManyToOne
+    /**
+    * Clave primaria que corresponde a la cédula de identidad del docente.
+    */
     private Docente codDocente;
 
     public Capacitacion() {
