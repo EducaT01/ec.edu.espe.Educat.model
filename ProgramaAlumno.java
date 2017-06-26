@@ -39,18 +39,33 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "ProgramaAlumno.findAll", query = "SELECT p FROM ProgramaAlumno p")})
 public class ProgramaAlumno implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+    /**
+    * Variable que representa el numero de version que posee la clase Serializable.
+    */
+    private static final long serialVersionUID = 1L;      
+    /**
+    * Objeto de la clase ProgramaAlumnoPK.
+    */
     @EmbeddedId
-    protected ProgramaAlumnoPK programaAlumnoPK;
+    protected ProgramaAlumnoPK programaAlumnoPK;    
+    /**
+    * Columna que corresponde al estado del estudiante con respecto a algun programa.
+    * Este puede ser: inscrito (INS), matriculado (MAT), en progreso (PRO) o finalizafo (FIN).
+    */
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
     @Column(name = "ESTADO")
-    private String estado;
+    private String estado;      
+    /**
+    * Clave primaria correspondiente a la que identifica a la entidad "ALUMNO".
+    */
     @JoinColumn(name = "COD_ALUMNO", referencedColumnName = "COD_ALUMNO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Alumno alumno;
+    private Alumno alumno;    
+    /**
+    * Clave primaria correspondiente a la que identifica a la entidad "PROGRAMA".
+    */    
     @JoinColumn(name = "COD_PROGRAMA", referencedColumnName = "COD_PROGRAMA", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Programa programa;
@@ -59,7 +74,7 @@ public class ProgramaAlumno implements Serializable {
     * Constructor sin parametros, vacio.
     */
     public ProgramaAlumno() {
-    }//Cierre del constructor
+    }//Cierre del constructor.
     
     /**
     * Constructor con el parametro de programaAlumnoPK.
@@ -67,7 +82,7 @@ public class ProgramaAlumno implements Serializable {
     */
     public ProgramaAlumno(ProgramaAlumnoPK programaAlumnoPK) {
         this.programaAlumnoPK = programaAlumnoPK;
-    }//Cierre del constructor
+    }//Cierre del constructor.
     
     /**
     * Constructor con los parametros de programaAlumnoPK, estado.
@@ -78,7 +93,7 @@ public class ProgramaAlumno implements Serializable {
     public ProgramaAlumno(ProgramaAlumnoPK programaAlumnoPK, String estado) {
         this.programaAlumnoPK = programaAlumnoPK;
         this.estado = estado;
-    }//Cierre del constructor
+    }//Cierre del constructor.
 
     /**
     * Constructor con los parametros de codPrograma, codAlumno.
@@ -87,47 +102,88 @@ public class ProgramaAlumno implements Serializable {
     */
     public ProgramaAlumno(String codPrograma, String codAlumno) {
         this.programaAlumnoPK = new ProgramaAlumnoPK(codPrograma, codAlumno);
-    }//Cierre del constructor
+    }//Cierre del constructor.
 
+    /**
+    * Metodo get para mostrar el atributo programaAlumnoPK.
+    * @return programaAlumnoPK.
+    */
     public ProgramaAlumnoPK getProgramaAlumnoPK() {
         return programaAlumnoPK;
-    }
-
+    }//Cierre de metodo.
+    
+    /**
+    * Metodo set para modificar el atributo programaAlumnoPK.
+    * @param programaAlumnoPK.
+    */
     public void setProgramaAlumnoPK(ProgramaAlumnoPK programaAlumnoPK) {
         this.programaAlumnoPK = programaAlumnoPK;
-    }
+    }//Cierre de metodo.
 
+    /**
+    * Metodo get para mostrar el atributo estado.
+    * @return estado.
+    */
     public String getEstado() {
         return estado;
-    }
+    }//Cierre de metodo.
 
+    /**
+    * Metodo set para modificar el atributo estado.
+    * @param estado.
+    */
     public void setEstado(String estado) {
         this.estado = estado;
-    }
+    }//Cierre de metodo.
 
+    /**
+    * Metodo get para mostrar el atributo alumno.
+    * @return alumno.
+    */
     public Alumno getAlumno() {
         return alumno;
-    }
-
+    }//Cierre de metodo.
+    
+    /**
+    * Metodo set para modificar el atributo alumno.
+    * @param alumno.
+    */
     public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
-    }
+    }//Cierre de metodo.
 
+    /**
+    * Metodo get para mostrar el atributo programa.
+    * @return alumno.
+    */
     public Programa getPrograma() {
         return programa;
-    }
+    }//Cierre de metodo.
 
+    /**
+    * Metodo set para modificar el atributo programa.
+    * @param alumno.
+    */
     public void setPrograma(Programa programa) {
         this.programa = programa;
-    }
-
+    }//Cierre de metodo.
+    
+    /**
+    * Metodo hasCode sobreescrito.
+    * @return hash.
+    */
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (programaAlumnoPK != null ? programaAlumnoPK.hashCode() : 0);
         return hash;
-    }
-
+    }//Cierre de metodo.
+        
+    /**
+    * Metodo sobreescrito equals.
+    * @param object.
+    * @return boolen.
+    */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -139,11 +195,15 @@ public class ProgramaAlumno implements Serializable {
             return false;
         }
         return true;
-    }
-
+    }//Cierre de metodo.
+    
+    /**
+    * Metodo sobreescrito toString.
+    * @return cadena de caracteres.
+    */
     @Override
     public String toString() {
         return "ec.edu.espe.EducaT.ProgramaAlumno[ programaAlumnoPK=" + programaAlumnoPK + " ]";
-    }
+    }//Cierre de metodo.
     
-}
+}//Cierre de la clase.
